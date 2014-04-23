@@ -38,7 +38,7 @@ VPATH  += /home/$(USER_NAME)/iWork/Thrid_party/ACE_wrappers_linux/lib
 MAKE_CMD=
 ISLIB=
 
-DIR_WORK_ROOT=/home/stewart/iWork
+DIR_WORK_ROOT=/home/$(USER_NAME)/iWork
 DIR_SYS_INC=$(DIR_WORK_ROOT)/include
 DIR_SYS_LIB=$(DIR_WORK_ROOT)/lib
 DIR_INCLUDE_LOCAL=$(DIR_WORK_ROOT)/common

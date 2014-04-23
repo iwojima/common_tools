@@ -7,10 +7,10 @@ if [ -z $MAKE_INFO ]; then
 fi
 
 export EXECUTE_USER=`whoami`
-if [ ! $EXECUTE_USER == "stewart" ]; then
-    echo "*ERROR* Invalid User"
-    exit
-fi
+#if [ ! $EXECUTE_USER == "stewart" ]; then
+#    echo "*ERROR* Invalid User"
+#    exit
+#fi
 
 export MY_MAKEFILE_DIR=~/iWork/common
 export MAKE_START=`date +%s`

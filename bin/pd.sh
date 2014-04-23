@@ -6,7 +6,7 @@
 # Date:     2000-4-24
 #
 ###########################################################################
-WORK_ROOT=/home/stewart/iWork
+WORK_ROOT=/home/`whoami`/iWork
 
 if [ "$1" == "-h" ]; then
     echo "usage: pd DIR     (same as PUSHD DIR)"
