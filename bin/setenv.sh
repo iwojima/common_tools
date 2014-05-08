@@ -18,6 +18,9 @@ alias emake='/home/stewart/iWork/common/bin/e_make.sh $*'
 alias e='emake'
 alias er='emake rebuild'
 
+ulimit -c unlimited
+ulimit unlimited
+
 export CURRENT_PATH=`pwd`
 export WORK_PATH=`echo $CURRENT_PATH | grep iWork`
 if [ -z $WORK_PATH ]; then
