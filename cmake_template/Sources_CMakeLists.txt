@@ -1,0 +1,22 @@
+project(crt0)                                                                  #设置project名
+include(/home/iwojima/iWork/common/CMakeLists.txt)                             #引用globel的CMakeList
+cmake_minimum_required(VERSION 2.8)                                            #设置CMake最低版本
+
+set(TARGET_NAME crt0)                                                          #设置Target Name
+set(TARGET_TYPE lib)                                                           #设置Target 类型
+
+list(APPEND SRC_LIST dllentry.c)                                               #将dllentry.c添加进SRC_LIST
+
+if($ENV{XDK_TARGET_PLATFORM} STREQUAL linux)                                   #若shell的环境变量XDK_TARGET_PLATFORM=linux
+	list(APPEND SRC_LIST dsohandle.c)                                          #将dsohandle.c添加进SRC_LIST
+endif()
+
+if($ENV{XDK_TARGET_PLATFORM} STREQUAL win32)                                   #若shell的环境变量XDK_TARGET_PLATFORM=win32
+	if($ENV{XDK_COMPILER} STREQUAL msvc)                                       #若shell的环境变量XDK_COMPILER=msvc
+		list(APPEND SRC_LIST atexit.c)                                         #将atexit.c添加进SRC_LIST
+		list(APPEND SRC_LIST pointer.c)                                        #将pointer.c添加进SRC_LIST
+	endif()
+	list(APPEND SRC_LIST mark.c)                                               #将mark.c添加进SRC_LIST
+endif()
+
+compile_command(NAME ${TARGET_NAME} TYPE ${TARGET_TYPE} SRC_LST ${SRC_LIST} )  #执行compile_command方法，定义在globel的cmakelists中

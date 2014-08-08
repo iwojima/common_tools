@@ -1,0 +1,12 @@
+project(PortingLayer)
+cmake_minimum_required(VERSION 2.8)
+
+if($ENV{XDK_TARGET_PLATFORM} STREQUAL linux)
+	add_subdirectory(crt0)
+else()
+	if ($ENV{XDK_TARGET_PLATFORM} STREQUAL android)
+		add_subdirectory(crt0)
+	else()
+		add_subdirectory(win32)
+	endif()
+endif()
